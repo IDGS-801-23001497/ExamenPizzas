@@ -107,12 +107,12 @@
                                     <td class="px-3 py-5 text-center">{{ pizza.num_pizzas }}</td>
                                     <td class="px-4 py-5 text-pink-700 font-bold">${{ pizza.subtotal }}</td>
                                     <td class="px-4 py-5 text-center">
-                                        <form action="{{ url_for('pedidos_bp.quitar', id_fila=loop.index0) }}" method="POST">
-                                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                                            <button type="submit" class="text-white bg-red-500 hover:bg-red-600 font-bold rounded-full text-xs px-4 py-2 transition">
-                                                Quitar
-                                            </button>
-                                        </form>
+                                        <form action="{{ url_for('pedidos_bp.quitar', id_detalle=pizza.id_detalle) }}" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <button type="submit" class="text-white bg-red-500 hover:bg-red-600 font-bold rounded-full text-xs px-4 py-2 transition">
+        Quitar
+    </button>
+</form>
                                     </td>
                                 </tr>
                                 {% else %}
